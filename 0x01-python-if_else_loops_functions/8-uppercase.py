@@ -1,10 +1,10 @@
 #!/usr/bin/python3
 def uppercase(c):
-	to_upper = ""
-	for l in c:
-		if l.isalpha() and ord(l) > 90:
-			to_upper += chr(ord(l) - 32)
-		else:
-			to_upper += l
+    to_upper = ""
+    for let in c:
+        if let.isalpha() and ord(let) > 90:
+            to_upper += chr(ord(let) - 32)
+        else:
+            to_upper += let
 
-	print(f"{to_upper}")
+    print("{}".format(to_upper))
