@@ -1,4 +1,5 @@
 #!/usr/bin/python3
 import string
-up = string.ascii_uppercase
-print(up)
+if __name__ == "__main__":
+    up = string.ascii_uppercase
+    print(up)
