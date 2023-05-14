@@ -23,7 +23,6 @@ int is_palindrome(listint_t **head)
 
 	int temp[i];
 	int temp2[i];
-
 	current = *head;
 
 	while (current)
