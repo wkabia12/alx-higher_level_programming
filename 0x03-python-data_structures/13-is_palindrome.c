@@ -6,40 +6,79 @@
  */
 int is_palindrome(listint_t **head)
 {
-	listint_t *current;
+	int n;
+	listint_t *slw, *fst;
+	listint_t *rev_2nd_half;
+	listint_t *p1, *p2;
 
-	current = *head;
-	int i = 0, j = 0, k = 0;
+	n = count(*head);
 
-	if (current == NULL)
-	{
+	if (n <= 1)
 		return (1);
-	}
-	while (current)
-	{
-		current = current->next;
-		i++;
-	}
 
-	int temp[i];
-	int temp2[i];
-	current = *head;
+	slw = *head;
+	fst = *head;
 
-	while (current)
+	while (fst != NULL && fst->next != NULL)
 	{
-		temp[j] = current->n;
-		current = current->next;
-		j++;
+		slw = slw->next;
+		fst = fst->next->next;
 	}
-	for (; k < i; k++)
+	if (n % 2 == 1)
+		slw = slw->next;
+
+
+	rev_2nd_half = rev_list(slw);
+	p1 = *head;
+	p2 = rev_2nd_half;
+
+	while (p2 != NULL)
 	{
-		temp2[i - 1 - k] = temp[k];
-	}
-	k = 0;
-	for (; k < i; k++)
-	{
-		if (temp[k] != temp2[k])
+		if (p1->n != p2->n)
 			return (0);
+		p1 = p1->next;
+		p2 = p2->next;
 	}
 	return (1);
+}
+/**
+ *count - checks number of nodes in singly linked list
+ *@head: list arguement
+ *Return: count of nodes
+ */
+int count(listint_t *head)
+{
+	int c;
+
+	c = 0;
+
+	while (head != NULL)
+	{
+		c++;
+		head = head->next;
+	}
+	return (c);
+}
+/**
+ *rev_list - reverse singly linked list
+ *@head: list arguement
+ *Return: pointer to rev list
+ */
+/* count the number of nodes in the linked list */
+listint_t *rev_list(listint_t *head)
+{
+	listint_t *p, *c, *n;
+
+	p = NULL;
+	c = head;
+	n = NULL;
+
+	while (c != NULL)
+	{
+		n = c->next;
+		c->next = p;
+		p = c;
+		c = n;
+	}
+	return (p);
 }
