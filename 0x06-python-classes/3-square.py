@@ -1,6 +1,26 @@
 #!/usr/bin/python3
-class Square:
+'''
+    Module defines Square class
+'''
 
+
+class Square:
+    """
+    Represents a square.
+
+    Attributes:
+        __size: private attribute to store size variable
+
+    Methods:
+        __init__: initialiazies object
+        area: Returns area of Square
+    Description:
+        The `Square` class is used to define a square object.
+        It does have __size attribute and __init__, area methods.
+
+    Example:
+    >>> my_square = Square()
+    """
     def __init__(self, size=0):
         if type(size) != int:
             raise TypeError("size must be an integer")
