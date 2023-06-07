@@ -1,0 +1,56 @@
+""" Test 1: Valid multiplication """
+>>> matrix_mul = __import__('100-matrix_mul').matrix_mul
+>>> m_a = [[1, 2, 3], [4, 5, 6]]
+>>> m_b = [[7, 8], [9, 10], [11, 12]]
+>>> matrix_mul(m_a, m_b))
+[[58, 64], [139, 154]]
+
+""" Test 2: Invalid multiplication (m_a and m_b can't be multiplied)"""
+
+>>> m_a = [[1, 2], [3, 4]]
+>>> m_b = [[5, 6, 7], [8, 9, 10]]
+>>> matrix_mul(m_a, m_b)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "<stdin>", line 43, in matrix_mul
+ValueError: m_a and m_b can't be multiplied
+
+""" Test 3: Empty matrix (m_a can't be empty) """
+
+>>> im_a = []
+>>> m_b = [[1, 2], [3, 4]]
+>>> matrix_mul(m_a, m_b)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "<stdin>", line 23, in matrix_mul
+ValueError: m_a can't be empty
+
+""" Test 4: Non-rectangular matrix (m_a contains rows of different sizes)"""
+
+>>> m_a = [[1, 2, 3], [4, 5], [6, 7, 8]]
+>>> m_b = [[1, 2], [3, 4], [5, 6]]
+>>> matrix_mul(m_a, m_b)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "<stdin>", line 37, in matrix_mul
+TypeError: each row of m_a must be of the same size
+
+""" Test 5: Invalid element type (m_a contains a non-integer/float element)"""
+
+>>> m_a = [[1, 2, 3], [4, '5', 6], [7, 8, 9]]
+>>> m_b = [[1, 2], [3, 4], [5, 6]]
+>>> matrix_mul(m_a, m_b)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "<stdin>", line 29, in matrix_mul
+TypeError: m_b should contain only integers or floats
+
+""" Test 6: Invalid input type (m_a is not a list of lists) """
+
+>>> m_a = [1, 2, 3]
+>>> m_b = [[1, 2], [3, 4]]
+>>> matrix_mul(m_a, m_b)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "<stdin>", line 13, in matrix_mul
+TypeError: m_a must be a list
