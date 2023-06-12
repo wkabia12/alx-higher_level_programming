@@ -4,7 +4,7 @@
 """
 
 
-BaseGeo = __import__('7-base_geometry.py').BaseGeometry
+BaseGeo = __import__('7-base_geometry').BaseGeometry
 
 
 class Rectangle(BaseGeo):
@@ -19,15 +19,15 @@ class Rectangle(BaseGeo):
 
     def __init__(self, width, height):
         """ initializes Rectangle object """
-        super().integer_validation("width", width)
-        super().integer_validation("height", height)
+        super().integer_validator("width", width)
+        super().integer_validator("height", height)
         self.__width = width
-        self.__width = height
+        self.__height = height
 
     def __str__(self):
         """ return str rep of Rectangle object """
-        return "[{}] {}/{}".format(__class__.name, self.__width, self.__height)
+        return "[Rectangle] {}/{}".format(self.__width, self.__height)
 
     def area(self):
         """ returns area of Rectangle object """
-        return (self__width * self__height)
+        return (self.__width * self.__height)

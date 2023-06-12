@@ -17,5 +17,5 @@ class Square(Rect):
 
     def __init__(self, size):
         """ initializes Square object """
-        super().integer_validation("size", size)
+        super().integer_validator("size", size)
         self.__size = size
