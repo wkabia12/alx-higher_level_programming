@@ -11,4 +11,4 @@ def from_json_string(my_str):
     """
         returns json rep of obj
     """
-    return json.loads(my_str):
+    return json.loads(my_str)

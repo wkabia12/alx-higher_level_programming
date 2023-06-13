@@ -4,9 +4,10 @@
 '''
 
 
-class Studnet:
+class Student:
     """
-       Defines Studnets Class
+       Defines Studnet Class
+
        Methods:
            __init__ : intilizes Student Obj
            to_json : retrives dict rep of Student Obj
@@ -20,4 +21,3 @@ class Studnet:
     def to_json(self):
         """ retrives dict represtation """
         return self.__dict__
-
