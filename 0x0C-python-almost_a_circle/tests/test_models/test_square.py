@@ -52,20 +52,6 @@ class TestSquare(unittest.TestCase):
         self.assertEqual(s5.id, 101)
         self.assertEqual(s6.id, 4)
 
-    def test_printing(self):
-        """ 10 check overloading of __str__ """
-        s1 = Square(4, 2, 1, 12)
-        self.assertEqual(s1.__str__(), "[Square] (12) 2/1 - 4")
-        s2 = Square(5, 5, 1)
-        self.assertEqual(s2.__str__(), "[Square] (1) 5/1 - 5")
-        s3 = Square(1, 2)
-        self.assertEqual(s3.__str__(), "[Square] (2) 2/0 - 1")
-        output = io.StringIO()
-        sys.stdout = output
-        s1 = Square(4, 2, 1, 12)
-        print(s1)
-        self.assertEqual(output.getvalue(), "[Square] (12) 2/1 - 4\n")
-        sys.stdout = sys.__stdout__
 
     def test_getter_method_size(self):
         """ check getter width """

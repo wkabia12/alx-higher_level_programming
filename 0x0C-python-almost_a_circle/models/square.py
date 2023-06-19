@@ -22,10 +22,14 @@ class Square(Rectangle):
         super().__init__(size, size, x, y, id)
 
     def __str__(self):
-        """ str rep for Square obj """
-        return "[Square] ({}) {}/{} - {}/{}".format(self.__id,\
-			self.__x, self.__y, self.__width, \
-			self.__height)
+        """ str rep for Rectangle obj """
+        i = self.__id
+        x = self.__x
+        y = self.__y
+        w = self.__width
+        h = self.__height
+        return "[Square] ({}) {}/{} - {}/{}".format(i, x, y, w, h)
+
     @property
     def size(self):
         return self.width

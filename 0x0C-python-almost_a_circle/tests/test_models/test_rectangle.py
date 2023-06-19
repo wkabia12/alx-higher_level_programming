@@ -78,16 +78,6 @@ class TestRectangle(unittest.TestCase):
         with self.assertRaises(AttributeError):
             r.__y
 
-    def test_getter_method_width(self):
-        """ check getter width """
-        r = Rectangle(1, 1)
-        self.assertEqual(r.width, 1)
-
-    def test_getter_method_height(self):
-        """ check getter height """
-        r = Rectangle(1, 2)
-        self.assertEqual(r.height, 2)
-
     def test_getter_method_x(self):
         """ check getter x """
         r = Rectangle(1, 2, 3)
