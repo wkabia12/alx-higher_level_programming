@@ -3,6 +3,8 @@
 
 
 import unittest
+import sys
+import io
 from models.base import Base
 from models.rectangle import Rectangle
 from models.square import Square
@@ -63,3 +65,33 @@ class TestSquare(unittest.TestCase):
         s = Square(1)
         s.size = 3
         self.assertEqual(s.size, 3)
+
+    def test_display(self):
+        """ 10 test for display method """
+        output = io.StringIO()
+        sys.stdout = output
+        s = Square(3)
+        s.display()
+        self.assertEqual(output.getvalue(), "###\n###\n###\n")
+        with self.assertRaises(TypeError):
+            s.display(2)
+        with self.assertRaises(TypeError):
+            s.display(2, 3)
+        s = Square(1, 4)
+        output = io.StringIO()
+        sys.stdout = output
+        s.display()
+        self.assertEqual(output.getvalue(), "    #\n")
+
+        s = Square(2, 2, 2)
+        output = io.StringIO()
+        sys.stdout = output
+        s.display()
+        self.assertEqual(output.getvalue(), "\n\n  ##\n  ##\n")
+
+        s = Square(2, 1, 0)
+        output = io.StringIO()
+        sys.stdout = output
+        s.display()
+        self.assertEqual(output.getvalue(), " ##\n ##\n")
+        sys.stdout = sys.__stdout__

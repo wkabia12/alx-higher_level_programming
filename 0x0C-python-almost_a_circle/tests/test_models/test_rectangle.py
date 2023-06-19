@@ -3,6 +3,8 @@
 
 
 import unittest
+import sys
+import io
 from models.base import Base
 from models.rectangle import Rectangle
 from models.square import Square
@@ -121,3 +123,41 @@ class TestRectangle(unittest.TestCase):
         r = Rectangle(1, 2, y=3)
         r.y = 4
         self.assertEqual(r.y, 4)
+
+    def test_area(self):
+        """ test for area method """
+        r = Rectangle(2, 3)
+        self.assertEqual(r.area(), 6)
+        with self.assertRaises(TypeError):
+            r.area(2)
+        with self.assertRaises(TypeError):
+            r.area(2, 3)
+
+    def test_display(self):
+        """ test for display method """
+        output = io.StringIO()
+        sys.stdout = output
+        r = Rectangle(4, 3)
+        r.display()
+        self.assertEqual(output.getvalue(), "####\n####\n####\n")
+        with self.assertRaises(TypeError):
+            r.display(2)
+        with self.assertRaises(TypeError):
+            r.display(2, 3)
+        r = Rectangle(1, 4)
+        output = io.StringIO()
+        sys.stdout = output
+        r.display()
+        self.assertEqual(output.getvalue(), "#\n#\n#\n#\n")
+        r = Rectangle(2, 3, 2, 2)
+        output = io.StringIO()
+        sys.stdout = output
+        r.display()
+        self.assertEqual(output.getvalue(), "\n\n  ##\n  ##\n  ##\n")
+        r = Rectangle(3, 2, 1, 0)
+        output = io.StringIO()
+        sys.stdout = output
+        r.display()
+        self.assertEqual(output.getvalue(), " ###\n ###\n")
+        sys.stdout = sys.__stdout__
+
