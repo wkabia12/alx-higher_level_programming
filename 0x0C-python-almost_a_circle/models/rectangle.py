@@ -4,6 +4,9 @@
 """
 
 
+from models.base import Base
+
+
 class Rectangle(Base):
     """
         Defines the Rectangle Class
@@ -96,7 +99,30 @@ class Rectangle(Base):
 
     def update(self, *args):
         if args:
-            print()
-        for i in self.__height:
-            print(" " * self.__x, end="")
-            print("#" * self.__width)
+            self.id = args[0] if len(args) >= 1 else self.id
+            self.width = args[1] if len(args) >= 2 else self.width
+            self.height = args[2] if len(args) >= 3 else self.height
+            self.x = args[3] if len(args) >= 4 else self.x
+            self.y = args[4] if len(args) >= 5 else self.y
+        else:
+            for key, value in kwargs.items():
+                if key == "id":
+                    self.id = value
+                elif key == "width":
+                    self.width = value
+                elif key == "height":
+                    self.height = value
+                elif key == "x":
+                    self.x = value
+                elif key == "y":
+                    self.y = value
+
+    def to_dictionary(self):
+        """ return dict representation of a rectangle """
+        i = self.id
+        w = self.width
+        h = self.height
+        x = self.x
+        y = self.y
+        _dict = {'id': i, 'width': w, 'height': h, 'x': x, 'y': y}
+        return _dict
