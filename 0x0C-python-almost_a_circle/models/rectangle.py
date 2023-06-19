@@ -1,4 +1,4 @@
-#!usr/bin/python3
+#!/usr/bin/python3
 """
     Module that contains the class Rectangle
 """
@@ -25,6 +25,12 @@ class Rectangle(Base):
         self.__height = width
         self.__x = x
         self.__y = y
+
+    def __str__(self):
+        """ str rep for Rectangle obj """
+        return "[Rectangle] ({}) {}/{} - {}/{}".format(self.__id,\
+			self.__x, self.__y, self.__width, \
+			self.__height)
 
     @property
     def width(self):
@@ -82,5 +88,15 @@ class Rectangle(Base):
         return (self.__width * self.__height)
 
     def display(self):
+        for i in self.__y:
+            print()
         for i in self.__height:
-            print("#" * __width)
+            print(" " * self.__x, end="")
+            print("#" * self.__width)
+
+    def update(self, *args):
+        if args:
+            print()
+        for i in self.__height:
+            print(" " * self.__x, end="")
+            print("#" * self.__width)
