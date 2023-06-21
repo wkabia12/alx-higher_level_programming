@@ -37,3 +37,25 @@ class Base():
             if type(_dict) != dict:
                 raise TypeError
         return json.dumps(list_dictionaries)
+
+    @staticmethod
+    def from_json_string(json_string):
+        """ return python list of json string representation """
+        if type(json_string) != str and json_string is not None:
+            raise TypeError
+        if json_string is None or json_string == "[]" or json_string == "":
+            return []
+        else:
+            return json.loads(json_string)
+
+    @classmethod
+    def save_to_file(cls, list_objs):
+        """ write json string of list_objs to a file """
+        if list_objs:
+            lis = [obj.to_dictionary() for obj in list_objs]
+            json_obj = cls.to_json_string(lis)
+        else:
+            json_obj = "[]"
+        file_name = cls.__name__ + ".json"
+        with open(file_name, mode="w", encoding="utf-8") as f:
+            f.write(json_obj)
