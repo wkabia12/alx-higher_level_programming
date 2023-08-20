@@ -20,6 +20,7 @@ def run_cmd(args):
     c.close()
     db.close()
 
+
 if __name__ == "__main__":
     import MySQLdb as Db
     import sys

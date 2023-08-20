@@ -11,13 +11,14 @@ def run_cmd(args):
                     db=args[2])
     c = db.cursor()
     c.execute("SELECT * FROM states\
-		    WHERE name = %s\
-		    ORDER BY id ASC",(args[3],))
+              WHERE name = %s\
+              ORDER BY id ASC", (args[3],))
     rows = c.fetchall()
     for row in rows:
         print(row)
     c.close()
     db.close()
+
 
 if __name__ == "__main__":
     import MySQLdb as Db
