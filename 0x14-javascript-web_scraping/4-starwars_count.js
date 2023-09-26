@@ -2,7 +2,7 @@
 // print number of films of character 18
 const request = require('request');
 const url = process.argv[2];
-const character = 'https://swapi-api.hbtn.io/api/people/18/';
+const character = url + '/18/';
 let sum = 0;
 request(url, function (error, response, body) {
   if (error) return console.error('error:', error);
